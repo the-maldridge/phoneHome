@@ -1,5 +1,7 @@
 from flask import Flask
 from flask import request
+from flask import render_template
+
 app = Flask(__name__)
 
 hosts=list()
@@ -7,10 +9,7 @@ hosts.append(("foo", "bar", "baz"))
 
 @app.route('/')
 def index():
-    returnString="Hostname | Internal IP | External IP\n"
-    for host in hosts:
-        returnString+= host[0] +" | "+ host[1] +" | "+ host[2] + "\n"
-    return returnString
+    return render_template("index.html", hosts=hosts)
 
 @app.route('/api/knownHosts')
 def porecelain():

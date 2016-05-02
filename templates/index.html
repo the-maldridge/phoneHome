@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>phoneHome IP Listing</title>
+  </head>
+  <body>
+    <table cellpadding="4">
+      <tr>
+        <th>Hostname</th>
+        <th>Internal IP</th>
+        <th>External IP</th>
+      </tr>
+      {% for host in hosts %}
+      <tr>
+        {% for param in host %}
+        <td>{{ param }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
