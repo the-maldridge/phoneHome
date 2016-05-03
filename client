@@ -1,0 +1,5 @@
+#!/bin/sh
+
+ip=$(ip -4 -o -r a | awk -F'[ /]' '{x=$7} END {print x}')
+
+echo $(curl http://maldridge.pythonanywhere.com/api/inform/$(hostname)/${ip} 2>/dev/null)
